@@ -17,6 +17,8 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/button.css" rel="stylesheet">
+  <link href="css/arrows.css" rel="stylesheet">
 <script src="js/jquery-3.4.1.min.js"></script>
 
 </head>
@@ -134,10 +136,38 @@
   </div>
 
 
-        <button type="submit" class="btn btn-secondary"><<</button>
-        <button type="submit" class="btn btn-secondary"><</button>
-        <button type="submit" class="btn btn-secondary">></button>
-        <button type="submit" class="btn btn-secondary">>></button>
+        <button type="submit" class="btn btn-secondary font-weight-bold" onclick="HatraHusz()"><<</button>
+
+	<script>
+	function HatraHusz() {
+  	  alert("20 cikkel visszább");
+	}
+	</script>
+
+        <button type="submit" class="btn btn-secondary font-weight-bold" onclick="HatraEgy()"><CustomArrow class="left"></button>
+
+	<script>
+	function HatraEgy() {
+  	  alert("Egy cikkel visszább");
+	}
+	</script>
+
+        <button type="submit" class="btn btn-secondary font-weight-bold" onclick="EloreEgy()"><CustomArrow class="right"></button>
+
+	<script>
+	function EloreEgy() {
+  	  alert("Egy cikkel előrébb");
+	}
+	</script>
+
+        <button type="submit" class="btn btn-secondary font-weight-bold" onclick="EloreHusz()">&#187;</button>
+
+
+	<script>
+	function EloreHusz() {
+  	  alert("20 cikkel előrébb");
+	}
+	</script>
 
 
 
@@ -147,7 +177,7 @@
               </div>
 
              <label for="customRange1">Valószínűség: </label>
-        <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange1">
+        <input type="range" class="custom-range" min="0" max="1" step="0.1" id="customRange1">
          
 
           <!-- Content Row -->
@@ -244,10 +274,10 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Hetilap</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">cikk: 110 ezer</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">címke: 1023 db</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">token: 73 millió</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">type: 62 ezer</div>
+                      <div class="mb-0 text-gray-800">cikk: <b>110 ezer</b></div>
+                      <div class="mb-0 text-gray-800">címke: <b>1023 db</b></div>
+                      <div class="mb-0 text-gray-800">token: <b>73 millió</b></div>
+                      <div class="mb-0 text-gray-800">type: <b>62 ezer</b></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -264,10 +294,10 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Hetilap+</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">cikk: 110 ezer</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">címke: 26901 db</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">token: 73 millió</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">type: 36 ezer</div>
+                      <div class="mb-0 text-gray-800">cikk: <b>110 ezer</b></div>
+                      <div class="mb-0 text-gray-800">címke: <b>26901 db</b></div>
+                      <div class="mb-0 text-gray-800">token: <b>73 millió</b></div>
+                      <div class="mb-0 text-gray-800">type: <b>36 ezer</b></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -284,10 +314,10 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Online</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">cikk: 80 ezer</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">címke: 76654 db</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">token: 35 millió</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">type: 33 ezer</div>
+                      <div class="mb-0 text-gray-800">cikk: <b>80 ezer</b></div>
+                      <div class="mb-0 text-gray-800">címke: <b>76654 db</b></div>
+                      <div class="mb-0 text-gray-800">token: <b>35 millió</b></div>
+                      <div class="mb-0 text-gray-800">type: <b>33 ezer</b></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -304,10 +334,10 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Hetilap +Online</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">cikk: 195 ezer</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">címke: 104432 db</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">token: 112 millió</div>
-                      <div class="mb-0 font-weight-bold text-gray-800">type: 38 ezer</div>
+                      <div class="mb-0 text-gray-800">cikk: <b>195 ezer</b></div>
+                      <div class="mb-0 text-gray-800">címke: <b>104432 db</b></div>
+                      <div class="mb-0 text-gray-800">token: <b>112 millió</b></div>
+                      <div class="mb-0 text-gray-800">type: <b>38 ezer</b></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
