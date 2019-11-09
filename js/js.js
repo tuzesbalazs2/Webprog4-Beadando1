@@ -13,14 +13,23 @@ for (i = 0; i < cikkek.length; i++) {
 var ajanlott_cimkek = [];
 for (i = 0; i < splittelt.length; i++) { 
 ajanlott_cimkek[i] = splittelt[i][0].split("__label__");
+	for (z = 0; z < ajanlott_cimkek[i].length; z++) { 
+	ajanlott_cimkek[i][z] = ajanlott_cimkek[i][z].split(" ");
+	}
 }
 var ajanlott_specialis_cimkek= [];
 for (i = 0; i < splittelt.length; i++) { //alert(splittelt[i][1]);
 ajanlott_specialis_cimkek[i] = splittelt[i][1].split("__label__");
+	for (z = 0; z < ajanlott_specialis_cimkek[i].length; z++) { 
+	ajanlott_specialis_cimkek[i][z] = ajanlott_specialis_cimkek[i][z].split(" ");
+	}
 }
 var eredeti_cimkek= [];
 for (i = 0; i < splittelt.length; i++) { 
 eredeti_cimkek[i] = splittelt[i][2].split("__label__");
+	for (z = 0; z < eredeti_cimkek[i].length; z++) { 
+	eredeti_cimkek[i][z] = eredeti_cimkek[i][z].split(" ");
+	}
 }
 var cim= [];
 for (i = 0; i < splittelt.length; i++) { 
@@ -41,6 +50,14 @@ var zzzzzz = eredeti_cimkek.shift();
 //alert(cim);
 //alert(cikk_szovege);
 //alert(splittelt[0]);
+//alert(ajanlott_cimkek);alert(ajanlott_cimkek_valoszinuseg);
+//alert(ajanlott_cimkek_valoszinuseg[i][z]);
+//alert(ajanlott_cimkek[i][z].split(" ")[1]);
+//alert(ajanlott_cimkek_valoszinuseg)[4][4][4][4];
+//alert(ajanlott_cimkek[i][z][1]);
+//alert(ajanlott_cimkek_valoszinuseg[i][0]);
+alert(ajanlott_cimkek[3][3][0]);
+
 }, 'text');
 } catch (err){alert(err.message);}
 
@@ -53,4 +70,3 @@ z += 1;
 }
 */
 
-alert();
