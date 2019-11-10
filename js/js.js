@@ -1,3 +1,4 @@
+//alert('fos');
 	function HatraHusz() {}
 	function HatraEgy() {}
 	function EloreEgy() {}
@@ -48,6 +49,9 @@ cikk_szovege[i] = splittelt[i][4];
 var zzzzzz = ajanlott_cimkek.shift();
 var zzzzzz = ajanlott_specialis_cimkek.shift();
 var zzzzzz = eredeti_cimkek.shift();
+var ajanlott_cimkek = ajanlott_cimkek.filter(Boolean);
+var ajanlott_specialis_cimkek = ajanlott_specialis_cimkek.filter(Boolean);
+var eredeti_cimkek = eredeti_cimkek.filter(Boolean);
 
 //alert(ajanlott_cimkek[0]);
 //alert(ajanlott_specialis_cimkek[0]);
@@ -61,48 +65,69 @@ var zzzzzz = eredeti_cimkek.shift();
 //alert(ajanlott_cimkek_valoszinuseg)[4][4][4][4];
 //alert(ajanlott_cimkek[i][z][1]);
 //alert(ajanlott_cimkek_valoszinuseg[i][0]);
-alert(ajanlott_cimkek[3][3][0]);
+//alert(ajanlott_cimkek[3][3][0]);
 
 
 var CikkIndex = 0;
 
 
         CikkLeptet=function() {
-          $(".szoveg").html(cikk_szovege[CikkIndex]);}
+          $("#szoveg").html(cikk_szovege[CikkIndex]);
+for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) { 
+	document.querySelector("#eredeti_cimkek").innerHTML += eredeti_cimkek[CikkIndex][z]+"<br>";
+}
+for (z = 0; z < ajanlott_cimkek[CikkIndex].length; z++) { 
+	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z]+"<br>";
+}
+for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) { 
+	document.querySelector("#eredeti_cimkek_egyeb").innerHTML += eredeti_cimkek[CikkIndex][z]+"<br>";
+}
+for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) { 
+	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z]+"<br>";
+}
+	};
 
         CikkLeptet();
 
 	HatraHusz=function() {
 	  CikkIndex -=20;
+	if (CikkIndex<0){CikkIndex=cikkek.length+CikkIndex;}
+	if (CikkIndex>cikkek.length-1){CikkIndex=CikkIndex-cikkek.length;}
           CikkLeptet();
   	  alert("20 cikkel visszább");
   	  alert(CikkIndex);
-	}
+	};
 
 
 	HatraEgy=function() {
 	  CikkIndex --;
+	if (CikkIndex<0){CikkIndex=cikkek.length+CikkIndex;}
+	if (CikkIndex>cikkek.length-1){CikkIndex=CikkIndex-cikkek.length;}
           CikkLeptet();
   	  alert("Egy cikkel visszább");
   	  alert(CikkIndex);
-	}
+	};
 
 
 	EloreEgy=function() {
 	  CikkIndex ++;
+	if (CikkIndex<0){CikkIndex=cikkek.length+CikkIndex;}
+	if (CikkIndex>cikkek.length-1){CikkIndex=CikkIndex-cikkek.length;}
           CikkLeptet();
   	  alert("Egy cikkel elõrébb");
   	  alert(CikkIndex);
-	}
+	};
 
 
 	EloreHusz=function() {
 	  CikkIndex +=20;
+	if (CikkIndex<0){CikkIndex=cikkek.length+CikkIndex;}
+	if (CikkIndex>cikkek.length-1){CikkIndex=CikkIndex-cikkek.length;}
           CikkLeptet();
   	  alert("20 cikkel elõrébb");
   	  alert(CikkIndex);
 
-	}
+	};
 
 
 }, 'text');
@@ -115,6 +140,12 @@ z = 0;
   splittelt[z] = x.split("$$$");//
 z += 1;
 }
+var valtozo = document.body.innerHTML + eredeti_cimkek[CikkIndex][1]+"\n");
+$("#eredeti_cimkek").html(valtozo);"u";alert('fos');// m
+var zzzzzz =  = ajanlott_cimkek.filter(function (el) {return el != null;});
+var ajanlott_cimkek = ajanlott_cimkek.filter(function (el) {return el != undefined;});
+var ajanlott_specialis_cimkek = ajanlott_specialis_cimkek.filter(function (el) {return el != undefined;});
+var eredeti_cimkek = eredeti_cimkek.filter(function (el) {return el != undefined;});
 */
 
 
