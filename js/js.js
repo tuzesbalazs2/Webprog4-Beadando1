@@ -1,7 +1,12 @@
+	function HatraHusz() {}
+	function HatraEgy() {}
+	function EloreEgy() {}
+	function EloreHusz() {}
+        function CikkLeptet() {}
 try{
 $.get('https://raw.githubusercontent.com/tuzesbalazs2/Webprog4-Beadando1/master/data.txt', function(data) {
 //alert(data);
-   $(".szoveg").html(data);
+//   $(".szoveg").html(data);
 var cikkek = data.split("\n");
 var zzzzzz = cikkek.pop();
 var splittelt = [];
@@ -58,6 +63,48 @@ var zzzzzz = eredeti_cimkek.shift();
 //alert(ajanlott_cimkek_valoszinuseg[i][0]);
 alert(ajanlott_cimkek[3][3][0]);
 
+
+var CikkIndex = 0;
+
+
+        CikkLeptet=function() {
+          $(".szoveg").html(cikk_szovege[CikkIndex]);}
+
+        CikkLeptet();
+
+	HatraHusz=function() {
+	  CikkIndex -=20;
+          CikkLeptet();
+  	  alert("20 cikkel visszább");
+  	  alert(CikkIndex);
+	}
+
+
+	HatraEgy=function() {
+	  CikkIndex --;
+          CikkLeptet();
+  	  alert("Egy cikkel visszább");
+  	  alert(CikkIndex);
+	}
+
+
+	EloreEgy=function() {
+	  CikkIndex ++;
+          CikkLeptet();
+  	  alert("Egy cikkel elõrébb");
+  	  alert(CikkIndex);
+	}
+
+
+	EloreHusz=function() {
+	  CikkIndex +=20;
+          CikkLeptet();
+  	  alert("20 cikkel elõrébb");
+  	  alert(CikkIndex);
+
+	}
+
+
 }, 'text');
 } catch (err){alert(err.message);}
 
@@ -69,4 +116,10 @@ z = 0;
 z += 1;
 }
 */
+
+
+
+
+
+   
 
