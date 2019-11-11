@@ -75,29 +75,34 @@ var CikkIndex = 0;
 
         CikkLeptet=function() {
           $("#szoveg").html(cikk_szovege[CikkIndex]);
+document.querySelector("#eredeti_cimkek").innerHTML = "";
+document.querySelector("#ajanlott_cimkek").innerHTML = "";
+document.querySelector("#eredeti_cimkek_egyeb").innerHTML = "";
+document.querySelector("#ajanlott_cimkek_egyeb").innerHTML = "";
 for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) { 
 	document.querySelector("#eredeti_cimkek").innerHTML += eredeti_cimkek[CikkIndex][z]+"<br>";
 }
 for (z = 0; z < ajanlott_cimkek[CikkIndex].length; z++) { 
-	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z]+"<br>";
+	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_cimkek[CikkIndex][z][1]+")"+"<br>";
 }
 for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) { 
 	document.querySelector("#eredeti_cimkek_egyeb").innerHTML += eredeti_cimkek[CikkIndex][z]+"<br>";
 }
 for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) { 
-	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z]+"<br>";
+	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_specialis_cimkek[CikkIndex][z][1]+")"+"<br>";
 }
 	};
 
-        CikkLeptet();
+
 
 	HatraHusz=function() {
 	  CikkIndex -=20;
 	if (CikkIndex<0){CikkIndex=cikkek.length+CikkIndex;}
 	if (CikkIndex>cikkek.length-1){CikkIndex=CikkIndex-cikkek.length;}
           CikkLeptet();
-  	  alert("20 cikkel visszább");
-  	  alert(CikkIndex);
+  	  //alert("20 cikkel visszább");
+  	  //alert(CikkIndex);
+	ListaErtekMegnez();
 	};
 
 
@@ -106,8 +111,9 @@ for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) {
 	if (CikkIndex<0){CikkIndex=cikkek.length+CikkIndex;}
 	if (CikkIndex>cikkek.length-1){CikkIndex=CikkIndex-cikkek.length;}
           CikkLeptet();
-  	  alert("Egy cikkel visszább");
-  	  alert(CikkIndex);
+  	  //alert("Egy cikkel visszább");
+  	  //alert(CikkIndex);
+	ListaErtekMegnez();
 	};
 
 
@@ -116,8 +122,9 @@ for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) {
 	if (CikkIndex<0){CikkIndex=cikkek.length+CikkIndex;}
 	if (CikkIndex>cikkek.length-1){CikkIndex=CikkIndex-cikkek.length;}
           CikkLeptet();
-  	  alert("Egy cikkel elõrébb");
-  	  alert(CikkIndex);
+  	  //alert("Egy cikkel elõrébb");
+  	  //alert(CikkIndex);
+	ListaErtekMegnez();
 	};
 
 
@@ -126,16 +133,17 @@ for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) {
 	if (CikkIndex<0){CikkIndex=cikkek.length+CikkIndex;}
 	if (CikkIndex>cikkek.length-1){CikkIndex=CikkIndex-cikkek.length;}
           CikkLeptet();
-  	  alert("20 cikkel elõrébb");
-  	  alert(CikkIndex);
+  	  //alert("20 cikkel elõrébb");
+  	  //alert(CikkIndex);
+	ListaErtekMegnez();
 
 	};
 
          ListaErtekMegnez=function() {
          var kivalaszt = document.getElementById("CikkLista");
          CikkIndex = CikkIndex + Number(kivalaszt.options[kivalaszt.selectedIndex].value);
-
-         alert(CikkIndex);
+kivalaszt.selectedIndex = 0;
+         //alert(CikkIndex);
          CikkLeptet();
          ListaValt();
          };
@@ -145,12 +153,16 @@ for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) {
 
          ListaValt=function(){
               var select=document.getElementById('CikkLista');
-              var index = 0;
+              //var index = 0;
               //select.options[index].value = 0;
               //select.options[index].text = 'izé';
-                select.options[CikkIndex].text = 'izé';
+		for (i = 0; i < 20; i++) { 
+		select.options[i].text = cim[CikkIndex+i];
+		}
          };
 
+		CikkLeptet();
+		ListaErtekMegnez();
 
 
 }, 'text');
