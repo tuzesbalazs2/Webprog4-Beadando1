@@ -1,9 +1,11 @@
-//alert('fos');
+//alert('ize');
 	function HatraHusz() {}
 	function HatraEgy() {}
 	function EloreEgy() {}
 	function EloreHusz() {}
         function CikkLeptet() {}
+        function ListaErtekMegnez() {}
+        function ListaValt(){}
 try{
 $.get('https://raw.githubusercontent.com/tuzesbalazs2/Webprog4-Beadando1/master/data.txt', function(data) {
 //alert(data);
@@ -128,6 +130,27 @@ for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) {
   	  alert(CikkIndex);
 
 	};
+
+         ListaErtekMegnez=function() {
+         var kivalaszt = document.getElementById("CikkLista");
+         CikkIndex = CikkIndex + Number(kivalaszt.options[kivalaszt.selectedIndex].value);
+
+         alert(CikkIndex);
+         CikkLeptet();
+         ListaValt();
+         };
+
+     //    ListaErtekMegnez();
+
+
+         ListaValt=function(){
+              var select=document.getElementById('CikkLista');
+              var index = 0;
+              //select.options[index].value = 0;
+              //select.options[index].text = 'izé';
+                select.options[CikkIndex].text = 'izé';
+         };
+
 
 
 }, 'text');
