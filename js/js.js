@@ -37,9 +37,7 @@ ajanlott_specialis_cimkek[i] = splittelt[i][1].split("__label__");
 var eredeti_cimkek= [];
 for (i = 0; i < splittelt.length; i++) { 
 eredeti_cimkek[i] = splittelt[i][2].split("__label__");
-	for (z = 0; z < eredeti_cimkek[i].length; z++) { 
-	eredeti_cimkek[i][z] = eredeti_cimkek[i][z].split(" ");
-	}
+
 }
 var cim= [];
 for (i = 0; i < splittelt.length; i++) { 
@@ -50,12 +48,20 @@ for (i = 0; i < splittelt.length; i++) {
 cikk_szovege[i] = splittelt[i][4];
 }
 
-var zzzzzz = ajanlott_cimkek.shift();
-var zzzzzz = ajanlott_specialis_cimkek.shift();
-var zzzzzz = eredeti_cimkek.shift();
-var ajanlott_cimkek = ajanlott_cimkek.filter(Boolean);
-var ajanlott_specialis_cimkek = ajanlott_specialis_cimkek.filter(Boolean);
-var eredeti_cimkek = eredeti_cimkek.filter(Boolean);
+ajanlott_cimkek.shift();
+ajanlott_specialis_cimkek.shift();
+eredeti_cimkek.shift();
+	for (z = 0; z < ajanlott_cimkek.length; z++) { 
+	ajanlott_cimkek[z].shift();
+	}
+	for (z = 0; z < ajanlott_specialis_cimkek.length; z++) { 
+	ajanlott_specialis_cimkek[z].shift();
+	}
+	for (z = 0; z < eredeti_cimkek.length; z++) { 
+	eredeti_cimkek[z].shift();
+	}
+
+
 
 //alert(ajanlott_cimkek[0]);
 //alert(ajanlott_specialis_cimkek[0]);
@@ -85,12 +91,14 @@ for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) {
 	document.querySelector("#eredeti_cimkek").innerHTML += eredeti_cimkek[CikkIndex][z]+"<br>";
 }
 for (z = 0; z < ajanlott_cimkek[CikkIndex].length; z++) { 
+if(ajanlott_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
 	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_cimkek[CikkIndex][z][1]+")"+"<br>";
 }
 for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) { 
 	document.querySelector("#eredeti_cimkek_egyeb").innerHTML += eredeti_cimkek[CikkIndex][z]+"<br>";
 }
 for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) { 
+if(ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
 	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_specialis_cimkek[CikkIndex][z][1]+")"+"<br>";
 }
 	};
@@ -167,19 +175,21 @@ kivalaszt.selectedIndex = 0;
 		ListaErtekMegnez();
 
         CsuszkaValt=function(){
-           // alert('Az érték megváltozott');
+           
 
-           //   var CsuszkaErtek=document.getElementById('Csuszka');
-           //   alert(CsuszkaErtek.value);
+             document.getElementById('CsuszkaSzovegErtek').innerHTML = document.getElementById('Csuszka').value ;
 
-            // document.getElementById('CsuszkaSzoveg').text = "Valószínûség: " + document.getElementById('Csuszka').value ;
+document.querySelector("#ajanlott_cimkek").innerHTML = "";
+document.querySelector("#ajanlott_cimkek_egyeb").innerHTML = "";
 
-             //document.getElementById('CsuszkaSzoveg').text = document.getElementById('Csuszka').value ;
-
-             //     document.getElementById('CsuszkaSzoveg').text = document.getElementById('Csuszka').value ;
-                  document.getElementById('CsuszkaSzovegErtek').text = document.getElementById('Csuszka').valueAsNumber;
-
-          //  alert(document.getElementById('Csuszka').value);
+for (z = 0; z < ajanlott_cimkek[CikkIndex].length; z++) { 
+if(ajanlott_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
+	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_cimkek[CikkIndex][z][1]+")"+"<br>";
+}
+for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) { 
+if(ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
+	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_specialis_cimkek[CikkIndex][z][1]+")"+"<br>";
+}
 
         };
 
