@@ -127,7 +127,7 @@
           </div>
 
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Cikkek listája</label>
+    <label for="CikkLista">Cikkek listája</label>
     <select id="CikkLista" class="form-control" onchange="ListaErtekMegnez()">
       <option value="0">1</option>
       <option value="1">2</option>
@@ -150,7 +150,9 @@
       <option value="18">19</option>
       <option value="19">20</option>
     </select>
+
   </div>
+
 
 
         <button type="submit" class="btn btn-secondary font-weight-bold" onclick="HatraHusz()">&laquo;</button>
@@ -159,15 +161,17 @@
         <button type="submit" class="btn btn-secondary font-weight-bold" onclick="EloreHusz()">&#187;</button>
 
 
-
                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="checkboxMin">
-                  <label class="custom-control-label" for="checkboxMin">min. 3</label>
+                  <input type="checkbox" class="custom-control-input" id="CheckboxMin" onchange="CheckboxMinValt()">
+                  <label class="custom-control-label" for="CheckboxMin">min. 3</label>
               </div>
 
-             <label for="customRange1">Valószínűség: </label>
-        <input type="range" class="custom-range" min="0" max="1" step="0.1" id="customRange1">
-         
+
+             
+             <label for="Csuszka" id="CsuszkaSzoveg">Valószínűség: </label>
+             <output for="Csuszka" id="CsuszkaSzovegErtek" name="CsuszkaSzovegErtek">0.5</output>
+        <input type="range" class="custom-range" min="0" max="1" step="0.1" id="Csuszka" oninput="CsuszkaValt()" name="Csuszka">
+           
 
           <!-- Content Row -->
           <div class="row">

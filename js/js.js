@@ -6,6 +6,8 @@
         function CikkLeptet() {}
         function ListaErtekMegnez() {}
         function ListaValt(){}
+        function CsuszkaValt() {}
+        function CheckboxMinValt() {}
 try{
 $.get('https://raw.githubusercontent.com/tuzesbalazs2/Webprog4-Beadando1/master/data.txt', function(data) {
 //alert(data);
@@ -163,6 +165,32 @@ kivalaszt.selectedIndex = 0;
 
 		CikkLeptet();
 		ListaErtekMegnez();
+
+        CsuszkaValt=function(){
+           // alert('Az érték megváltozott');
+
+           //   var CsuszkaErtek=document.getElementById('Csuszka');
+           //   alert(CsuszkaErtek.value);
+
+            // document.getElementById('CsuszkaSzoveg').text = "Valószínûség: " + document.getElementById('Csuszka').value ;
+
+             //document.getElementById('CsuszkaSzoveg').text = document.getElementById('Csuszka').value ;
+
+             //     document.getElementById('CsuszkaSzoveg').text = document.getElementById('Csuszka').value ;
+                  document.getElementById('CsuszkaSzovegErtek').text = document.getElementById('Csuszka').valueAsNumber;
+
+          //  alert(document.getElementById('Csuszka').value);
+
+        };
+
+        CheckboxMinValt=function(){
+
+          var CheckboxMinErtek=document.getElementById('CheckboxMin');
+
+
+           // alert(document.getElementById('CheckboxMin').value);
+
+        };
 
 
 }, 'text');
