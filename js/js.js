@@ -48,9 +48,9 @@ for (i = 0; i < splittelt.length; i++) {
 cikk_szovege[i] = splittelt[i][4];
 }
 
-ajanlott_cimkek.shift();
-ajanlott_specialis_cimkek.shift();
-eredeti_cimkek.shift();
+//ajanlott_cimkek.shift();
+//ajanlott_specialis_cimkek.shift();
+//eredeti_cimkek.shift();
 	for (z = 0; z < ajanlott_cimkek.length; z++) { 
 	ajanlott_cimkek[z].shift();
 	}
@@ -195,10 +195,25 @@ if(ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszk
 
         CheckboxMinValt=function(){
 
-          var CheckboxMinErtek=document.getElementById('CheckboxMin');
+          var CheckboxMinErtek=document.getElementById('CheckboxMin').checked;
+           if (CheckboxMinErtek==true) {
 
+document.querySelector("#ajanlott_cimkek").innerHTML = "";
+document.querySelector("#ajanlott_cimkek_egyeb").innerHTML = "";
 
-           // alert(document.getElementById('CheckboxMin').value);
+for (z = 0; z < 3; z++) { 
+	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_cimkek[CikkIndex][z][1]+")"+"<br>";
+}
+for (z = 0; z < 3; z++) { 
+	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_specialis_cimkek[CikkIndex][z][1]+")"+"<br>";
+}
+
+                    }
+
+           else {CsuszkaValt();}
+           
+
+           // alert(document.getElementById('CheckboxMin').checked);
 
         };
 
