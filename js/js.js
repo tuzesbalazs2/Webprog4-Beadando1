@@ -88,19 +88,26 @@ document.querySelector("#ajanlott_cimkek").innerHTML = "";
 document.querySelector("#eredeti_cimkek_egyeb").innerHTML = "";
 document.querySelector("#ajanlott_cimkek_egyeb").innerHTML = "";
 for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) { 
+	if ((eredeti_cimkek[CikkIndex][z].indexOf("geography__") == -1) && (eredeti_cimkek[CikkIndex][z].indexOf("organization__") == -1) && (eredeti_cimkek[CikkIndex][z].indexOf("person__") == -1)){
 	document.querySelector("#eredeti_cimkek").innerHTML += eredeti_cimkek[CikkIndex][z]+"<br>";
+	}
+	else{
+	document.querySelector("#eredeti_cimkek_egyeb").innerHTML += eredeti_cimkek[CikkIndex][z]+"<br>";
+	}
 }
 for (z = 0; z < ajanlott_cimkek[CikkIndex].length; z++) { 
 if(ajanlott_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
 	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_cimkek[CikkIndex][z][1]+")"+"<br>";
 }
-for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) { 
-	document.querySelector("#eredeti_cimkek_egyeb").innerHTML += eredeti_cimkek[CikkIndex][z]+"<br>";
-}
 for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) { 
+if ((ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("geography__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("organization__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("person__") !== -1)){
+//alert('az');
 if(ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
 	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_specialis_cimkek[CikkIndex][z][1]+")"+"<br>";
+}//n
 }
+CheckboxMinValt();
+document.querySelector("#cardok").innerHTML=document.querySelector("#cardok").innerHTML.replace(/@@/g, ' ');
 	};
 
 
@@ -187,9 +194,13 @@ if(ajanlott_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
 	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_cimkek[CikkIndex][z][1]+")"+"<br>";
 }
 for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) { 
+if ((ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("geography__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("organization__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("person__") !== -1)){
 if(ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
 	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_specialis_cimkek[CikkIndex][z][1]+")"+"<br>";
 }
+}
+CheckboxMinValt();
+document.querySelector("#cardok").innerHTML=document.querySelector("#cardok").innerHTML.replace(/@@/g, ' ');
 
         };
 
@@ -200,12 +211,27 @@ if(ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszk
 
 document.querySelector("#ajanlott_cimkek").innerHTML = "";
 document.querySelector("#ajanlott_cimkek_egyeb").innerHTML = "";
-
-for (z = 0; z < 3; z++) { 
+var az = 0;
+for (z = 0; z < ajanlott_cimkek[CikkIndex].length; z++) { 
+	if (z <= 2){
 	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_cimkek[CikkIndex][z][1]+")"+"<br>";
+	}
+	else {
+	if(ajanlott_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
+	document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_cimkek[CikkIndex][z][1]+")"+"<br>";
+	}
 }
-for (z = 0; z < 3; z++) { 
+for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) { 
+if ((az <= 2))
+if ((ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("geography__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("organization__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("person__") !== -1)){
 	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_specialis_cimkek[CikkIndex][z][1]+")"+"<br>";
+az++;
+}
+//if (az > 2){break;}
+if (az > 2){if ((ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("geography__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("organization__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("person__") !== -1)){
+if(ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
+	document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0]+" "+"("+ajanlott_specialis_cimkek[CikkIndex][z][1]+")"+"<br>";
+}}
 }
 
                     }
@@ -214,7 +240,7 @@ for (z = 0; z < 3; z++) {
            
 
            // alert(document.getElementById('CheckboxMin').checked);
-
+document.querySelector("#cardok").innerHTML=document.querySelector("#cardok").innerHTML.replace(/@@/g, ' ');
         };
 
 
@@ -234,6 +260,7 @@ var zzzzzz =  = ajanlott_cimkek.filter(function (el) {return el != null;});
 var ajanlott_cimkek = ajanlott_cimkek.filter(function (el) {return el != undefined;});
 var ajanlott_specialis_cimkek = ajanlott_specialis_cimkek.filter(function (el) {return el != undefined;});
 var eredeti_cimkek = eredeti_cimkek.filter(function (el) {return el != undefined;});
+document.querySelector("#cardok").style.display = "none";
 */
 
 
