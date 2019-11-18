@@ -8,6 +8,7 @@
         function ListaValt(){}
         function CsuszkaValt() {}
         function CheckboxMinValt() {}
+        function PrecisionRecallMegnez() {}
 try{
 $.get('https://raw.githubusercontent.com/tuzesbalazs2/Webprog4-Beadando1/master/data.txt', function(data) {
 //alert(data);
@@ -108,6 +109,7 @@ if(ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszk
 }
 CheckboxMinValt();
 document.querySelector("#cardok").innerHTML=document.querySelector("#cardok").innerHTML.replace(/@@/g, ' ');
+PrecisionRecallMegnez();
 	};
 
 
@@ -242,6 +244,38 @@ if(ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszk
            // alert(document.getElementById('CheckboxMin').checked);
 document.querySelector("#cardok").innerHTML=document.querySelector("#cardok").innerHTML.replace(/@@/g, ' ');
         };
+
+
+
+        PrecisionRecallMegnez=function() {
+//alert ("elart!!!44");
+//alert (Array.prototype.include);
+		var HelyesTalalatok = 0;
+     for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++)
+           {
+
+     if ((eredeti_cimkek[CikkIndex].indexOf("geography__") == -1) && (eredeti_cimkek[CikkIndex].indexOf("organization__") == -1) && (eredeti_cimkek[CikkIndex].indexOf("person__") == -1)){
+         //alert (HelyesTalalatok);
+	for (i = 0; i < eredeti_cimkek[CikkIndex].length; i++)
+           {
+		alert(eredeti_cimkek[CikkIndex][z]+" | "+ajanlott_cimkek[CikkIndex][i][0]);
+            //if (ajanlott_cimkek[CikkIndex].toString().indexOf(eredeti_cimkek[CikkIndex][z].toString()) !== -1)
+		if (ajanlott_cimkek[CikkIndex][i][0].toString() !== eredeti_cimkek[CikkIndex][z].toString())
+               {
+
+                       HelyesTalalatok++;
+                   alert(HelyesTalalatok);
+               }
+	    }
+            }
+             
+           }
+        document.getElementById("PrecisionSzovegErtek").innerHTML = HelyesTalalatok / ajanlott_cimkek[CikkIndex].length;
+        document.getElementById("RecallSzovegErtek").innerHTML = HelyesTalalatok / eredeti_cimkek[CikkIndex].length;
+//alert (HelyesTalalatok);
+
+            };
+
 
 
 }, 'text');

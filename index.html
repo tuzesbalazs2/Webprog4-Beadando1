@@ -164,13 +164,20 @@
                <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="CheckboxMin" oninput="CheckboxMinValt()">
                   <label class="custom-control-label" for="CheckboxMin">min. 3</label>
+
+<label id="PrecisionSzoveg">P: </label>
+<label id="PrecisionSzovegErtek">0</label>
+
               </div>
 
 
              
              <label for="Csuszka" id="CsuszkaSzoveg">Valószínűség: </label>
-             <output for="Csuszka" id="CsuszkaSzovegErtek" name="CsuszkaSzovegErtek">0.5</output>
+             <output for="Csuszka" id="CsuszkaSzovegErtek" name="CsuszkaSzovegErtek" class="font-weight-bold">0.5</output>
         <input type="range" class="custom-range" min="0" max="1" step="0.1" id="Csuszka" oninput="CsuszkaValt()" name="Csuszka">
+
+<label id="RecallSzoveg">R: </label>
+<label id="RecallSzovegErtek">0</label>
            
 
           <!-- Content Row -->
