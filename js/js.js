@@ -259,8 +259,20 @@ document.querySelector("#cardok").innerHTML=document.querySelector("#cardok").in
 	for (i = 0; i < eredeti_cimkek[CikkIndex].length; i++)
            {
 		alert(eredeti_cimkek[CikkIndex][z]+" | "+ajanlott_cimkek[CikkIndex][i][0]);
+                //alert(ajanlott_cimkek[CikkIndex][i][0]+" | "+ajanlott_cimkek[CikkIndex][i][0]);
             //if (ajanlott_cimkek[CikkIndex].toString().indexOf(eredeti_cimkek[CikkIndex][z].toString()) !== -1)
-		if (ajanlott_cimkek[CikkIndex][i][0].toString() !== eredeti_cimkek[CikkIndex][z].toString())
+		//if (JSON.stringify(ajanlott_cimkek[CikkIndex][i][0]) === JSON.stringify(eredeti_cimkek[CikkIndex][z]))
+                //if (JSON.stringify(ajanlott_cimkek[CikkIndex][i][0]) === JSON.stringify(ajanlott_cimkek[CikkIndex][i][0]))
+ //var DebugCucc = "mobiltelefon";
+                  //alert(ajanlott_cimkek[CikkIndex][i][0]+" | "+DebugCucc);
+                //if (JSON.stringify(ajanlott_cimkek[CikkIndex][i][0]) === JSON.stringify(DebugCucc))
+                //if (ajanlott_cimkek[CikkIndex][i][0].indexOf(DebugCucc) !== -1)
+                //if (ajanlott_cimkek[CikkIndex][i][0].indexOf(eredeti_cimkek[CikkIndex][z]) !== -1)
+  //alert(JSON.stringify(ajanlott_cimkek[CikkIndex][i][0].indexOf(JSON.stringify(eredeti_cimkek[CikkIndex][z]))));
+                //if ((JSON.stringify(ajanlott_cimkek[CikkIndex][i][0].indexOf(JSON.stringify(eredeti_cimkek[CikkIndex][z])))) >= 0)
+                 //alert(eredeti_cimkek[CikkIndex][z]+" | "+DebugCucc);
+                //if (JSON.stringify(eredeti_cimkek[CikkIndex][z].trim()) === JSON.stringify(DebugCucc))
+                if (ajanlott_cimkek[CikkIndex][i][0] === eredeti_cimkek[CikkIndex][z].trim())
                {
 
                        HelyesTalalatok++;
@@ -270,8 +282,8 @@ document.querySelector("#cardok").innerHTML=document.querySelector("#cardok").in
             }
              
            }
-        document.getElementById("PrecisionSzovegErtek").innerHTML = HelyesTalalatok / ajanlott_cimkek[CikkIndex].length;
-        document.getElementById("RecallSzovegErtek").innerHTML = HelyesTalalatok / eredeti_cimkek[CikkIndex].length;
+        document.getElementById("PrecisionSzovegErtek").innerHTML = (HelyesTalalatok / ajanlott_cimkek[CikkIndex].length).toFixed(3);
+        document.getElementById("RecallSzovegErtek").innerHTML = (HelyesTalalatok / eredeti_cimkek[CikkIndex].length).toFixed(3);
 //alert (HelyesTalalatok);
 
             };
