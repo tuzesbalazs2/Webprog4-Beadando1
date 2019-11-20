@@ -182,6 +182,8 @@ try {
         ListaErtekMegnez = function () {
             var kivalaszt = document.getElementById("CikkLista");
             CikkIndex = CikkIndex + Number(kivalaszt.options[kivalaszt.selectedIndex].value);
+            if (CikkIndex < 0) { CikkIndex = cikkek.length + CikkIndex; }
+            if (CikkIndex > cikkek.length - 1) { CikkIndex = CikkIndex - cikkek.length; }
             kivalaszt.selectedIndex = 0;
             //alert(CikkIndex);
             CikkLeptet();
@@ -197,7 +199,10 @@ try {
             //select.options[index].value = 0;
             //select.options[index].text = 'izé';
             for (i = 0; i < 20; i++) {
-                select.options[i].text = cim[CikkIndex + i];
+
+            if (CikkIndex < 0) { CikkIndex = cikkek.length + CikkIndex; }
+            else if ((CikkIndex + i) > cikkek.length - 1) { CikkIndex = CikkIndex - cikkek.length; }
+                else {select.options[i].text = cim[CikkIndex + i];}
             }
         };
         CikkLeptet();
