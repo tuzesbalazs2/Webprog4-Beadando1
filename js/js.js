@@ -109,7 +109,28 @@ try {
             }
             CheckboxMinValt();
             document.querySelector("#cardok").innerHTML = document.querySelector("#cardok").innerHTML.replace(/@@/g, ' ');
-            PrecisionRecallMegnez();
+	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	    var HelyesTalalatok = 0;
+            for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) {
+
+                if ((eredeti_cimkek[CikkIndex].indexOf("geography__") == -1) && (eredeti_cimkek[CikkIndex].indexOf("organization__") == -1) && (eredeti_cimkek[CikkIndex].indexOf("person__") == -1)) {
+                    //alert (HelyesTalalatok);
+                    for (i = 0; i < eredeti_cimkek[CikkIndex].length; i++) {
+                        //alert(eredeti_cimkek[CikkIndex][z] + " | " + ajanlott_cimkek[CikkIndex][i][0]);
+                        if (ajanlott_cimkek[CikkIndex][i][0] === eredeti_cimkek[CikkIndex][z].trim()) {
+
+                            HelyesTalalatok++;
+                            //alert(HelyesTalalatok);
+                        }
+                    }
+                }
+
+            }
+            document.getElementById("PrecisionSzovegErtek").innerHTML = (HelyesTalalatok / ajanlott_cimkek[CikkIndex].length).toFixed(3);
+            document.getElementById("RecallSzovegErtek").innerHTML = (HelyesTalalatok / eredeti_cimkek[CikkIndex].length).toFixed(3);
+            //alert (HelyesTalalatok);
+
+            
         };
 
 
@@ -179,7 +200,6 @@ try {
                 select.options[i].text = cim[CikkIndex + i];
             }
         };
-
         CikkLeptet();
         ListaErtekMegnez();
 
@@ -201,7 +221,9 @@ try {
                         document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0] + " " + "(" + ajanlott_specialis_cimkek[CikkIndex][z][1] + ")" + "<br>";
                 }
             }
-            CheckboxMinValt();
+	    var CheckboxMinErtek = document.getElementById('CheckboxMin').checked;
+            if (CheckboxMinErtek == true)
+            	CheckboxMinValt();
             document.querySelector("#cardok").innerHTML = document.querySelector("#cardok").innerHTML.replace(/@@/g, ' ');
 
         };
@@ -250,41 +272,9 @@ try {
 
 
         PrecisionRecallMegnez = function () {
+	    //alert('a');
             //alert ("elart!!!44");
             //alert (Array.prototype.include);
-            var HelyesTalalatok = 0;
-            for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) {
-
-                if ((eredeti_cimkek[CikkIndex].indexOf("geography__") == -1) && (eredeti_cimkek[CikkIndex].indexOf("organization__") == -1) && (eredeti_cimkek[CikkIndex].indexOf("person__") == -1)) {
-                    //alert (HelyesTalalatok);
-                    for (i = 0; i < eredeti_cimkek[CikkIndex].length; i++) {
-                        alert(eredeti_cimkek[CikkIndex][z] + " | " + ajanlott_cimkek[CikkIndex][i][0]);
-                        //alert(ajanlott_cimkek[CikkIndex][i][0]+" | "+ajanlott_cimkek[CikkIndex][i][0]);
-                        //if (ajanlott_cimkek[CikkIndex].toString().indexOf(eredeti_cimkek[CikkIndex][z].toString()) !== -1)
-                        //if (JSON.stringify(ajanlott_cimkek[CikkIndex][i][0]) === JSON.stringify(eredeti_cimkek[CikkIndex][z]))
-                        //if (JSON.stringify(ajanlott_cimkek[CikkIndex][i][0]) === JSON.stringify(ajanlott_cimkek[CikkIndex][i][0]))
-                        //var DebugCucc = "mobiltelefon";
-                        //alert(ajanlott_cimkek[CikkIndex][i][0]+" | "+DebugCucc);
-                        //if (JSON.stringify(ajanlott_cimkek[CikkIndex][i][0]) === JSON.stringify(DebugCucc))
-                        //if (ajanlott_cimkek[CikkIndex][i][0].indexOf(DebugCucc) !== -1)
-                        //if (ajanlott_cimkek[CikkIndex][i][0].indexOf(eredeti_cimkek[CikkIndex][z]) !== -1)
-                        //alert(JSON.stringify(ajanlott_cimkek[CikkIndex][i][0].indexOf(JSON.stringify(eredeti_cimkek[CikkIndex][z]))));
-                        //if ((JSON.stringify(ajanlott_cimkek[CikkIndex][i][0].indexOf(JSON.stringify(eredeti_cimkek[CikkIndex][z])))) >= 0)
-                        //alert(eredeti_cimkek[CikkIndex][z]+" | "+DebugCucc);
-                        //if (JSON.stringify(eredeti_cimkek[CikkIndex][z].trim()) === JSON.stringify(DebugCucc))
-                        if (ajanlott_cimkek[CikkIndex][i][0] === eredeti_cimkek[CikkIndex][z].trim()) {
-
-                            HelyesTalalatok++;
-                            alert(HelyesTalalatok);
-                        }
-                    }
-                }
-
-            }
-            document.getElementById("PrecisionSzovegErtek").innerHTML = (HelyesTalalatok / ajanlott_cimkek[CikkIndex].length).toFixed(3);
-            document.getElementById("RecallSzovegErtek").innerHTML = (HelyesTalalatok / eredeti_cimkek[CikkIndex].length).toFixed(3);
-            //alert (HelyesTalalatok);
-
         };
 
 
