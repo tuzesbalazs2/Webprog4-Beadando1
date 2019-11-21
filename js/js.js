@@ -200,8 +200,8 @@ try {
             //select.options[index].text = 'izé';
             for (i = 0; i < 20; i++) {
 
-            if (CikkIndex < 0) { CikkIndex = cikkek.length + CikkIndex; }
-            else if ((CikkIndex + i) > cikkek.length - 1) { CikkIndex = CikkIndex - cikkek.length; }
+            //if (CikkIndex < 0) { CikkIndex = cikkek.length + CikkIndex; }
+             if ((CikkIndex + i) > cikkek.length - 1) { select.options[i].text = cim[CikkIndex + i -cikkek.length]; }
                 else {select.options[i].text = cim[CikkIndex + i];}
             }
         };
