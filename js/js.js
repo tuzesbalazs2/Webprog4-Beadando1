@@ -129,9 +129,24 @@ try {
                     }
             } 
 
+
+            for (z = 0; z < eredeti_cimkek_egyeb[CikkIndex].length; z++) {
+                
+                    
+                    for (i = 0; i < ajanlott_specialis_cimkek[CikkIndex].length; i++) {
+                        
+                        if (ajanlott_specialis_cimkek[CikkIndex][i][0] === eredeti_cimkek_egyeb[CikkIndex][z]) {
+
+                            HelyesTalalatok++;
+                            //alert(HelyesTalalatok);
+			    //alert(ajanlott_cimkek[CikkIndex].length);
+                        }
+                    }
+            } 
+
             
-            document.getElementById("PrecisionSzovegErtek").innerHTML = (HelyesTalalatok / ajanlott_cimkek[CikkIndex].length).toFixed(3);
-            document.getElementById("RecallSzovegErtek").innerHTML = (HelyesTalalatok / eredeti_cimkek[CikkIndex].length).toFixed(3);
+            document.getElementById("PrecisionSzovegErtek").innerHTML = (HelyesTalalatok / (ajanlott_cimkek[CikkIndex].length + ajanlott_specialis_cimkek[CikkIndex].length)).toFixed(3);
+            document.getElementById("RecallSzovegErtek").innerHTML = (HelyesTalalatok / (eredeti_cimkek[CikkIndex].length + eredeti_cimkek_egyeb[CikkIndex].length)).toFixed(3);
             //alert (HelyesTalalatok);
 
             
@@ -231,8 +246,36 @@ try {
                 }
             }
 	    var CheckboxMinErtek = document.getElementById('CheckboxMin').checked;
-            if (CheckboxMinErtek == true)
-            	CheckboxMinValt();
+            if (CheckboxMinErtek == true){
+                                 document.querySelector("#ajanlott_cimkek").innerHTML = "";
+                document.querySelector("#ajanlott_cimkek_egyeb").innerHTML = "";
+                var az = 0;
+                for (z = 0; z < ajanlott_cimkek[CikkIndex].length; z++) {
+                    if (z <= 2) {
+                        document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0] + " " + "(" + ajanlott_cimkek[CikkIndex][z][1] + ")" + "<br>";
+                    }
+                    else {
+                        if (ajanlott_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
+                            document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0] + " " + "(" + ajanlott_cimkek[CikkIndex][z][1] + ")" + "<br>";
+                    }
+                }
+                for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) {
+                    if ((az <= 2))
+                        if ((ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("geography__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("organization__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("person__") !== -1)) {
+                            document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0] + " " + "(" + ajanlott_specialis_cimkek[CikkIndex][z][1] + ")" + "<br>";
+                            az++;
+                        }
+                    //if (az > 2){break;}
+                    if (az > 2) {
+                        if ((ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("geography__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("organization__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("person__") !== -1)) {
+                            if (ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
+                                document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0] + " " + "(" + ajanlott_specialis_cimkek[CikkIndex][z][1] + ")" + "<br>";
+                        }
+                    }
+                }
+               }
+            	
+
             document.querySelector("#cardok").innerHTML = document.querySelector("#cardok").innerHTML.replace(/@@/g, ' ');
 
         };
