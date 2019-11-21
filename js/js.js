@@ -35,11 +35,14 @@ try {
                 ajanlott_specialis_cimkek[i][z] = ajanlott_specialis_cimkek[i][z].split(" ");
             }
         }
-        var eredeti_cimkek = [];
+        var eredeti_cimkek = []; var eredeti_cimkek_egyeb = [];
         for (i = 0; i < splittelt.length; i++) {
             eredeti_cimkek[i] = splittelt[i][2].split("__label__");
-
+	    eredeti_cimkek_egyeb[i] = eredeti_cimkek[i][eredeti_cimkek[i].length-1].split(" "); eredeti_cimkek_egyeb[i].shift();
+	    eredeti_cimkek[i][eredeti_cimkek[i].length-1] = eredeti_cimkek[i][eredeti_cimkek[i].length-1].split(" ")[0]+" ";
         }
+	
+	
         var cim = [];
         for (i = 0; i < splittelt.length; i++) {
             cim[i] = splittelt[i][3];
@@ -89,13 +92,14 @@ try {
             document.querySelector("#eredeti_cimkek_egyeb").innerHTML = "";
             document.querySelector("#ajanlott_cimkek_egyeb").innerHTML = "";
             for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) {
-                if ((eredeti_cimkek[CikkIndex][z].indexOf("geography__") == -1) && (eredeti_cimkek[CikkIndex][z].indexOf("organization__") == -1) && (eredeti_cimkek[CikkIndex][z].indexOf("person__") == -1)) {
+                
                     document.querySelector("#eredeti_cimkek").innerHTML += eredeti_cimkek[CikkIndex][z] + "<br>";
-                }
-                else {
-                    document.querySelector("#eredeti_cimkek_egyeb").innerHTML += eredeti_cimkek[CikkIndex][z] + "<br>";
-                }
+                
             }
+	    for (z = 0; z < eredeti_cimkek_egyeb[CikkIndex].length; z++) {
+                    document.querySelector("#eredeti_cimkek_egyeb").innerHTML += eredeti_cimkek_egyeb[CikkIndex][z] + "<br>";
+            }
+            
             for (z = 0; z < ajanlott_cimkek[CikkIndex].length; z++) {
                 if (ajanlott_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
                     document.querySelector("#ajanlott_cimkek").innerHTML += ajanlott_cimkek[CikkIndex][z][0] + " " + "(" + ajanlott_cimkek[CikkIndex][z][1] + ")" + "<br>";
@@ -112,20 +116,20 @@ try {
 	    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	    var HelyesTalalatok = 0;
             for (z = 0; z < eredeti_cimkek[CikkIndex].length; z++) {
-
-                if ((eredeti_cimkek[CikkIndex].indexOf("geography__") == -1) && (eredeti_cimkek[CikkIndex].indexOf("organization__") == -1) && (eredeti_cimkek[CikkIndex].indexOf("person__") == -1)) {
-                    //alert (HelyesTalalatok);
-                    for (i = 0; i < eredeti_cimkek[CikkIndex].length; i++) {
-                        //alert(eredeti_cimkek[CikkIndex][z] + " | " + ajanlott_cimkek[CikkIndex][i][0]);
+                
+                    
+                    for (i = 0; i < ajanlott_cimkek[CikkIndex].length; i++) {
+                        
                         if (ajanlott_cimkek[CikkIndex][i][0] === eredeti_cimkek[CikkIndex][z].trim()) {
 
                             HelyesTalalatok++;
                             //alert(HelyesTalalatok);
+			    //alert(ajanlott_cimkek[CikkIndex].length);
                         }
                     }
-                }
+            } 
 
-            }
+            
             document.getElementById("PrecisionSzovegErtek").innerHTML = (HelyesTalalatok / ajanlott_cimkek[CikkIndex].length).toFixed(3);
             document.getElementById("RecallSzovegErtek").innerHTML = (HelyesTalalatok / eredeti_cimkek[CikkIndex].length).toFixed(3);
             //alert (HelyesTalalatok);
@@ -283,7 +287,9 @@ try {
         };
 
 
-
+//aler()
+//alert(eredeti_cimkek[CikkIndex][3]);
+//alert(eredeti_cimkek_egyeb[CikkIndex][0]);
     }, 'text');
 } catch (err) { alert(err.message); }
 
