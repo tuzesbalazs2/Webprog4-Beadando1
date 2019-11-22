@@ -97,7 +97,9 @@ try {
                 
             }
 	    for (z = 0; z < eredeti_cimkek_egyeb[CikkIndex].length; z++) {
+                        if ((eredeti_cimkek_egyeb[CikkIndex][z].indexOf("geography__") !== -1) || (eredeti_cimkek_egyeb[CikkIndex][z].indexOf("organization__") !== -1) || (eredeti_cimkek_egyeb[CikkIndex][z].indexOf("person__") !== -1)) {
                     document.querySelector("#eredeti_cimkek_egyeb").innerHTML += eredeti_cimkek_egyeb[CikkIndex][z] + "<br>";
+                      }
             }
             
             for (z = 0; z < ajanlott_cimkek[CikkIndex].length; z++) {
