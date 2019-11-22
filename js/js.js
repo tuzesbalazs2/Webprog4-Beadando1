@@ -262,18 +262,18 @@ try {
                     }
                 }
                 for (z = 0; z < ajanlott_specialis_cimkek[CikkIndex].length; z++) {
-                    if ((az <= 2))
-                        if ((ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("geography__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("organization__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("person__") !== -1)) {
-                            document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0] + " " + "(" + ajanlott_specialis_cimkek[CikkIndex][z][1] + ")" + "<br>";
-                            az++;
-                        }
-                    //if (az > 2){break;}
                     if (az > 2) {
                         if ((ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("geography__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("organization__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("person__") !== -1)) {
                             if (ajanlott_specialis_cimkek[CikkIndex][z][1] >= document.getElementById('Csuszka').value)
                                 document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0] + " " + "(" + ajanlott_specialis_cimkek[CikkIndex][z][1] + ")" + "<br>";
                         }
                     }
+                    if ((az <= 2))
+                        if ((ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("geography__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("organization__") !== -1) || (ajanlott_specialis_cimkek[CikkIndex][z][0].indexOf("person__") !== -1)) {
+                            document.querySelector("#ajanlott_cimkek_egyeb").innerHTML += ajanlott_specialis_cimkek[CikkIndex][z][0] + " " + "(" + ajanlott_specialis_cimkek[CikkIndex][z][1] + ")" + "<br>";
+                            az++;
+                        }
+                    //if (az > 2){break;}
                 }
                }
             	
