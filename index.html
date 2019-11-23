@@ -159,18 +159,17 @@
 
 
 
+                    <div class="text-right">
                     <button type="submit" class="btn btn-secondary font-weight-bold" onclick="HatraHusz()">&laquo;</button>
                     <button type="submit" class="btn btn-secondary font-weight-bold" onclick="HatraEgy()"><CustomArrow class="left"></button>
                     <button type="submit" class="btn btn-secondary font-weight-bold" onclick="EloreEgy()"><CustomArrow class="right"></button>
                     <button type="submit" class="btn btn-secondary font-weight-bold" onclick="EloreHusz()">&#187;</button>
+                    </div>
 
 
-                    <div class="custom-control custom-checkbox">
+                    <div class="custom-control custom-checkbox text-right">
                         <input type="checkbox" class="custom-control-input" id="CheckboxMin" oninput="CsuszkaValt()">
                         <label class="custom-control-label" for="CheckboxMin">min. 3</label>
-
-                        <label id="PrecisionSzoveg">P: </label>
-                        <label id="PrecisionSzovegErtek">0</label>
 
                     </div>
 
@@ -180,8 +179,15 @@
                     <output for="Csuszka" id="CsuszkaSzovegErtek" name="CsuszkaSzovegErtek" class="font-weight-bold">0.5</output>
                     <input type="range" class="custom-range" min="0" max="1" step="0.1" id="Csuszka" oninput="CsuszkaValt()" name="Csuszka">
 
+                    <div class="text-right">
+                        <label id="PrecisionSzoveg">P: </label>
+                        <label id="PrecisionSzovegErtek">0</label>
+                    </div>
+
+                    <div class="text-right">
                     <label id="RecallSzoveg">R: </label>
                     <label id="RecallSzovegErtek">0</label>
+                    </div>
 
 
                     <!-- Content Row -->
